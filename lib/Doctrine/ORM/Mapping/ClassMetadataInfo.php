@@ -985,7 +985,12 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! $this->isIdentifierComposite) {
             return $fieldName === $this->identifier[0];
         }
-        return in_array($fieldName, $this->identifier);
+
+		// hack this to provider DateTime composite keys
+		if($fieldName != 'date')
+        	return in_array($fieldName, $this->identifier);
+
+		return false;
     }
 
     /**
