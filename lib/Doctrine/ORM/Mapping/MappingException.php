@@ -210,13 +210,13 @@ class MappingException extends \Doctrine\ORM\ORMException
             return new self(sprintf(
                 'Class "%s" sub class of "%s" is not a valid entity or mapped super class.',
                 $className, $parent
-            ));
+            ), -1);
         }
 
         return new self(sprintf(
             'Class "%s" is not a valid entity or mapped super class.',
             $className
-        ));
+        ), -1);
     }
 
     public static function propertyTypeIsRequired($className, $propertyName)
